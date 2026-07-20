@@ -6,5 +6,132 @@
   <title>Yejun's Web — Sites, Tools, and Projects</title>
   <meta name="description" content="이예준의 프로필, 유틸리티, 캠퍼스 프로젝트와 웹 실험을 한자리에 모은 중앙 디렉터리.">
   <link rel="canonical" href="https://bjdg-cm.github.io/">
+  <meta name="theme-color" content="#f4f5f9">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="
+  <meta property="og:title" content="Yejun's Web — Sites, Tools, and Projects">
+  <meta property="og:description" content="이예준이 운영하는 프로필, 도구, 캠퍼스 프로젝트와 웹 실험을 한곳에서 둘러보세요.">
+  <meta property="og:url" content="https://bjdg-cm.github.io/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Yejun's Web — Sites, Tools, and Projects">
+  <meta name="twitter:description" content="이예준의 공개 웹사이트를 한곳에 모은 개인 웹 디렉터리.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%233b82f6'/%3E%3Cpath d='M19 20l13 25 13-25h-8l-5 11-5-11z' fill='white'/%3E%3C/svg%3E">
+  <script>
+    (() => {
+      let choice = 'system';
+      try { choice = localStorage.getItem('yw-theme') || 'system'; } catch (_) {}
+      const dark = choice === 'dark' || (choice === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      document.documentElement.dataset.themeChoice = choice;
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#directory">사이트 목록으로 건너뛰기</a>
+
+  <header class="site-header" id="site-header">
+    <div class="shell nav-shell">
+      <a class="brand" href="#top" aria-label="Yejun's Web 홈">
+        <span class="brand-mark" aria-hidden="true">Y</span>
+        <span class="brand-copy"><strong>Yejun's Web</strong><small>Personal Web Directory</small></span>
+      </a>
+      <nav class="primary-nav" aria-label="주요 메뉴">
+        <a href="#directory">사이트 목록</a>
+        <a href="https://github.com/BJDG-CM" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <div class="theme-switcher" role="group" aria-label="화면 테마">
+          <button type="button" data-theme-choice="light" aria-pressed="false" title="라이트 모드">☀</button>
+          <button type="button" data-theme-choice="system" aria-pressed="true" title="시스템 설정">◐</button>
+          <button type="button" data-theme-choice="dark" aria-pressed="false" title="다크 모드">☾</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="domain-pill"><i aria-hidden="true"></i>bjdg-cm.github.io</span>
+        <h1 id="hero-title">내가 만든 웹을<br><span>한곳에서.</span></h1>
+        <p>프로필, 개발 프로젝트, 실용 도구와 실험적인 웹사이트까지. 이 페이지는 이예준이 공개한 여러 사이트로 이어지는 중앙 입구입니다.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#directory">사이트 둘러보기 <span aria-hidden="true">↓</span></a>
+          <a class="button button-secondary" href="https://github.com/BJDG-CM" target="_blank" rel="noopener noreferrer">GitHub 열기 <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="category-summary" id="category-summary" role="list" aria-label="사이트 카테고리 요약">
+        <div class="summary-card" role="listitem" style="background:linear-gradient(140deg,#3b82f6,#1d4ed8);--summary-shadow:#3b82f6"><strong>—</strong><span>불러오는 중<small>Loading</small></span></div>
+        <div class="summary-card" role="listitem" style="background:linear-gradient(140deg,#10b39a,#087c6c);--summary-shadow:#10b39a"><strong>—</strong><span>사이트 목록<small>Directory</small></span></div>
+        <div class="summary-card" role="listitem" style="background:linear-gradient(140deg,#f5943a,#d56a11);--summary-shadow:#f5943a"><strong>—</strong><span>자동 탐색<small>GitHub Pages</small></span></div>
+      </div>
+    </section>
+
+    <section class="directory shell" id="directory" aria-labelledby="directory-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Web directory</p>
+          <h2 id="directory-title">사이트 디렉터리</h2>
+          <p>원하는 사이트를 검색하거나 카테고리별로 살펴보세요.</p>
+        </div>
+        <p class="sync-state" id="sync-state" aria-live="polite">사이트 목록을 불러오는 중…</p>
+      </div>
+
+      <div class="directory-controls">
+        <label class="search-box">
+          <span class="sr-only">사이트 검색</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input id="site-search" type="search" autocomplete="off" placeholder="사이트 이름, 설명 또는 기술 검색">
+        </label>
+        <div class="filter-row" id="filter-row" aria-label="사이트 카테고리 필터"></div>
+      </div>
+
+      <div class="result-bar">
+        <span><strong id="result-count">0</strong>개의 사이트</span>
+        <button type="button" id="reset-filters">검색 초기화</button>
+      </div>
+
+      <div class="site-grid" id="site-grid" aria-live="polite" aria-busy="true"></div>
+      <div class="empty-state" id="empty-state" hidden>
+        <span aria-hidden="true">⌕</span>
+        <h3>일치하는 사이트가 없습니다</h3>
+        <p>검색어나 카테고리를 바꿔 다시 찾아보세요.</p>
+        <button type="button" data-reset>전체 사이트 보기</button>
+      </div>
+
+      <noscript>
+        <div class="noscript-list">
+          <p>JavaScript가 꺼져 있어 기본 링크만 표시합니다.</p>
+          <a href="https://bjdg-cm.github.io/Homepage/">Academic Profile</a>
+          <a href="https://bjdg-cm.github.io/Homepage-CS/">Developer Portfolio</a>
+          <a href="https://bjdg-cm.github.io/print-drive/">Print Drive</a>
+          <a href="https://bjdg-cm.github.io/GISTGraduationMap/">GIST Graduation Map</a>
+        </div>
+      </noscript>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main shell">
+      <div class="footer-brand">
+        <div><span class="brand-mark small" aria-hidden="true">Y</span><strong>Yejun's Web</strong></div>
+        <p>이예준이 공개한 프로필, 도구, 프로젝트와 실험을 연결하는 개인 웹 디렉터리입니다.</p>
+      </div>
+      <div class="footer-links">
+        <span>Explore</span>
+        <a href="#directory">사이트 디렉터리</a>
+        <a href="https://github.com/BJDG-CM" target="_blank" rel="noopener noreferrer">GitHub 프로필 ↗</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="shell"><span>© <span id="current-year">2026</span> Yejun Lee</span><a href="#top">맨 위로 ↑</a></div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="맨 위로 이동">↑</button>
+  <script src="sites.config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
